@@ -196,7 +196,7 @@ pvegpg(){
 	wget -q --timeout=5 --tries=1 --show-progres http://mirrors.tuna.tsinghua.edu.cn/proxmox/debian/proxmox-release-${sver}.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-${sver}.gpg
 	if [[ $? -ne 0 ]];then
 		TIME r "尝试重新下载..."
-		wget -q --timeout=5 --tries=1 --show-progres https://github.com/jhpang32/pve-diy/blob/master/gpg/proxmox-release-${sver}.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-${sver}.gpg
+		wget -q --timeout=50 --tries=1 --show-progres https://raw.github.com/jhpang32/pve-diy/blob/master/gpg/proxmox-release-${sver}.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-${sver}.gpg
 			if [[ $? -ne 0 ]];then
 				TIME r "下载秘钥失败，请检查网络再尝试!"
 				sleep 2
